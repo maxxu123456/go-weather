@@ -50,6 +50,8 @@ func main() {
 		panic(err)
 	}
 
+	defer res.Body.Close()
+
 	if res.StatusCode != 200 {
 		panic(err)
 	}
@@ -92,6 +94,8 @@ func getLatLon(loc string, key string) (float64, float64) {
 	if err != nil {
 		panic(err)
 	}
+
+	defer res.Body.Close()
 
 	var locations []Location
 
